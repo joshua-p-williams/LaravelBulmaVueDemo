@@ -35,7 +35,7 @@ const app = new Vue({
 
             themes: [
                 'cerulean',
-                'cosmo' /*,
+                'cosmo',
                 'cyborg',
                 'darkly',
                 'flatly',
@@ -49,7 +49,7 @@ const app = new Vue({
                 'spacelab',
                 'superhero',
                 'united',
-                'yeti'*/
+                'yeti'
             ]
         }
     },
