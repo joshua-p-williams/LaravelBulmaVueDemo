@@ -25,7 +25,7 @@ const app = new Vue({
             currentPage: 'contact',
 
             selected: {
-                name: 'This is 2 way binding',
+                name: 'Josh Williams',
                 theme: null,
             },
 
@@ -58,7 +58,12 @@ const app = new Vue({
 
         selectTheme: function (theme) {
             this.selected.theme = theme;
-            this.showPage('done');
+            this.showPage('confirm');
+        },
+
+        submit: function () {
+            alert('Here is where we would submit to the backend');
+            this.showPage('done');            
         }
     },
 
