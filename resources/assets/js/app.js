@@ -22,12 +22,16 @@ const app = new Vue({
 
     data: function () {
         return {
-            currentPage: 'contact',
-
             selected: {
                 name: 'Josh Williams',
                 theme: null,
             },
+
+            currentPage: 'contact',
+
+            errorMessage: null,
+            errorDetails: null,
+            submitting: false,
 
             themes: [
                 'cerulean',
@@ -56,14 +60,43 @@ const app = new Vue({
             this.currentPage = pageName;
         },
 
+        resetErrors: function () {
+            this.submitting = false;
+            this.errorMessage = null;
+            this.errorDetails = null;
+        },
+
         selectTheme: function (theme) {
             this.selected.theme = theme;
             this.showPage('confirm');
         },
 
+        handleError: function (error) {
+            this.errorMessage = error.message;
+            this.errorDetails = null;
+            if (error.errors) {
+                this.errorDetails = [];
+                for (var property in error.errors) {
+                    if (error.errors.hasOwnProperty(property)) {
+                        this.errorDetails.push(property + ' - ' + error.errors[property][0]);
+                    }
+                }
+            }            
+        },
+
         submit: function () {
-            alert('Here is where we would submit to the backend');
-            this.showPage('done');            
+            this.resetErrors();
+            this.submitting = true;
+
+            axios.post('/api/signup/submit', this.selected)
+            .then((response) => {
+                this.submitting = false;
+                this.showPage('done');
+            })
+            .catch((error) => {
+                this.submitting = false;
+                this.handleError(error.response.data);
+            });
         }
     },
 
