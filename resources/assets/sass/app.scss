@@ -5,5 +5,14 @@
 // Variables
 @import "variables";
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+.img-theme-preview {
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color:rgba(0, 0, 0, 0.5);
+        -webkit-transition: all .5s;
+        transition: all .5s;
+    }
+}
