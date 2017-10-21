@@ -8,14 +8,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Mail\SignupSubmitted;
 use Illuminate\Support\Facades\Mail;
+use App\Signup;
 
 class SignupController extends Controller
 {
     public function submit(Request $request) {
         $validatedData = $request->validate([
-            'name' => 'required|max:20',
+            'email' => 'required|email|max:100',
+            'name' => 'required|max:100',
             'theme' => 'required|max:20',
         ]);
+
+        // Store it in the database
+        signup::create($validatedData);
 
         /**
          * Mailable generated with
@@ -33,6 +38,7 @@ class SignupController extends Controller
     public function testEmail() {
         return new SignupSubmitted([
             'name' => 'Josh',
+            'email' => 'me@earth.com',
             'theme' => 'united'
         ]);
     }

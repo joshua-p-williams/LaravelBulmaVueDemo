@@ -7,6 +7,7 @@ A new user has signed up for your service
 | Field         | Value         |
 | ------------- |:-------------:|
 | Name          | {{$name}} |
+| Email         | {{$email}} |
 | Theme         | {{$theme}} |
 @endcomponent
 
