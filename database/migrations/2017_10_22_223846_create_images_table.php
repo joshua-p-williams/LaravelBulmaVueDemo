@@ -6,9 +6,9 @@ use Illuminate\Database\Migrations\Migration;
 
 /**
  * Created with
- * php artisan make:model --migration Signup
+ * php artisan make:model --migration Image
  * or
- * php artisan make:migration create_signups_table --create=signups
+ * php artisan make:migration create_images_table --create=images
  * 
  * Then make sure the database exists 
  * for sqlite
@@ -17,7 +17,7 @@ use Illuminate\Database\Migrations\Migration;
  * Then migrate
  * php artisan migrate
  */
-class CreateSignupsTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -26,12 +26,14 @@ class CreateSignupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('signups', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("name", 100);
-            $table->string('email', 100)->unique();
-            $table->string("theme", 20);
+            $table->string('type', 50);
+            $table->string('filename', 500);
+            $table->integer('signup_id');
             $table->timestamps();
+
+            $table->foreign('signup_id')->references('id')->on('signups');
         });
     }
 
@@ -42,6 +44,6 @@ class CreateSignupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('signups');
+        Schema::dropIfExists('images');
     }
 }

@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('signup/submit', 'SignupController@submit');
 Route::get('signup/testEmail', 'SignupController@testEmail');
+Route::post('signup/uploadImage', 'SignupController@uploadImage');

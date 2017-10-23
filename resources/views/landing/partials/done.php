@@ -2,4 +2,3 @@
 <p class="subtitle">
     Everything was submitted!
 </p>
-
