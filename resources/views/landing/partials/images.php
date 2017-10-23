@@ -35,7 +35,6 @@
 <div class="columns is-multiline">
     <div class="column is-one-quarter" v-for="image in images">
         <img :src="'/images/' +  image.filename" 
-            v-on:click="selectTheme(theme)"
             class="img-theme-preview">
     </div>
 </div>
