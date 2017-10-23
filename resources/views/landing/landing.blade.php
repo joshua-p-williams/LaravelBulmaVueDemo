@@ -10,6 +10,9 @@
     <div v-if="currentPage === 'confirm'">
         @include('landing.partials.confirm')
     </div>
+    <div v-if="currentPage === 'images'">
+        @include('landing.partials.images')
+    </div>
     <div v-if="currentPage === 'done'">
         @include('landing.partials.done')
     </div>
