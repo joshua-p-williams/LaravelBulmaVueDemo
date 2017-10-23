@@ -23,7 +23,8 @@ const app = new Vue({
     data: function () {
         return {
             selected: {
-                name: 'Josh Williams',
+                name: null,
+                email: null,
                 theme: null,
             },
 

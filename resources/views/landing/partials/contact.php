@@ -6,7 +6,17 @@
 <div class="field">
   <label class="label">Name</label>
   <div class="control">
-    <input class="input" type="text" placeholder="Text input" v-model="selected.name">
+    <input class="input" type="text" placeholder="Enter your name" v-model="selected.name">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input" type="email" placeholder="Enter your email"  v-model="selected.email">
+    <span class="icon is-small is-left">
+      <i class="fa fa-envelope"></i>
+    </span>
   </div>
 </div>
 
